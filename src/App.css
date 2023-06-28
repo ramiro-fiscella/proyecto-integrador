@@ -1,0 +1,19 @@
+*:hover {
+  border-style: none;
+}
+body {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.911),
+      rgba(19, 20, 16, 0.486)
+    ),
+    url(./assets/imgs/bg-img-1.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#root {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}

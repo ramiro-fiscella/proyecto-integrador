@@ -1,0 +1,8 @@
+.mainContainer {
+  max-width: 1560px;
+  margin: 2rem auto;
+  padding: 0 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
