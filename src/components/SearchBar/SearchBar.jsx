@@ -1,21 +1,25 @@
 import styles from "./SearchBar.module.css";
+import { useState } from "react";
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar({ onSearch, onRandomAdd }) {
+  const [id, setId] = useState("");
+
+  const handleChange = (event) => {
+    setId(event.target.value);
+  };
+
   return (
-    <div className={styles.navBar}>
-      <div>
-        <img src="src\assets\imgs\logo.svg" alt="" />
-      </div>
-      <div className={styles.buscador}>
-        <input type="search" />
-        <button // CUANDO CLICKEO EL BOTON LE PASO UNA FUNCION ANONIMA QUE TOMA EL ID INGRESADO Y LO "BUSCA" (POR AHORA DE MENTIRITAS)
-          onClick={(id) => {
-            onSearch(id);
-          }}
-        >
-          ADD
-        </button>
-      </div>
+    <div className={styles.buscador}>
+      <input type="search" onChange={handleChange} value={id} />
+      <button
+        onClick={() => {
+          onSearch(id);
+          setId("");
+        }}
+      >
+        ADD
+      </button>
+      <button onClick={onRandomAdd}>RANDOM</button>
     </div>
   );
 }

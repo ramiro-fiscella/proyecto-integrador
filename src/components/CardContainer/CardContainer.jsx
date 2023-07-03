@@ -1,10 +1,9 @@
 import Card from "../Card/Card";
 import styles from "./CardContainer.module.css";
 
-export default function CardContainer({ characters }) {
+const CardContainer = ({ characters, onClose }) => {
   // DESESTRUCTURO CHARACTER DE LAS PROPS
 
-  const onClose = () => window.alert("Emulación de cierre de card");
   return (
     <div className={styles.mainContainer}>
       {characters.map(
@@ -25,4 +24,6 @@ export default function CardContainer({ characters }) {
       )}
     </div>
   );
-}
+};
+
+export default CardContainer;

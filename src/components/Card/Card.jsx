@@ -1,24 +1,32 @@
-import React from "react";
 import styles from "./Card.module.css";
 
-export default function Card(props) {
-  console.log(props, "props");
-
+const Card = ({
+  id,
+  name,
+  status,
+  image,
+  species,
+  gender,
+  origin,
+  onClose,
+}) => {
   return (
     <div className={styles.card}>
-      <h2 className={styles.name}>{props.name}</h2>
-      <p className={styles.status}>{props.status}</p>
-      <img src={props.image} alt={props.name} />
+      <h2 className={styles.name}>{name}</h2>
+      <p className={styles.status}>{status}</p>
+      <img src={image} alt={name} />
 
       <div className={styles.data}>
-        <p>Species: {props.species}</p>
-        <p>Gender: {props.gender}</p>
-        <p>Origin: {props.origin}</p>
+        <p>Species: {species}</p>
+        <p>Gender: {gender}</p>
+        <p>Origin: {origin}</p>
       </div>
 
-      <button className={styles.closeButton} onClick={props.onClose}>
+      <button className={styles.closeButton} onClick={() => onClose(id)}>
         remove card
       </button>
     </div>
   );
-}
+};
+
+export default Card;

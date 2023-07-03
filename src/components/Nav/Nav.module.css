@@ -1,0 +1,25 @@
+.navFondo {
+  position: fixed;
+  z-index: 10;
+  display: block;
+  top: 0;
+  left: 0;
+
+  margin: 0;
+  width: 100%;
+
+  background-color: #000000f6;
+}
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1300px;
+  padding: 5px 10vw;
+  margin: auto;
+  height: 65px;
+}
+.navBar img {
+  height: 50px;
+}

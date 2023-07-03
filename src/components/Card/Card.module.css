@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600&display=swap");
 .card {
@@ -6,16 +7,16 @@
   text-align: left;
 
   height: initial;
-  width: 240px;
-  margin: 2rem 1.5rem;
+  width: 260px;
+  margin: 25px 15px;
   background-image: linear-gradient(
-    #26301d,
-    #131312,
+    #000000,
     #23310a,
     #0f0f0e,
-    #000000
+    #131312,
+    #21271c
   );
-  transition-duration: 1s;
+  transition-duration: 300ms;
 
   border-radius: 8px;
 
@@ -25,21 +26,35 @@
 }
 .card:hover {
   transform: scale(1.02, 1.02);
-  transition-duration: 1s;
+  transition-duration: 200ms;
   border-radius: 8px;
-  box-shadow: 0 0 3px 1px greenyellow;
+  box-shadow: 0 0 40px 5px rgba(152, 255, 8, 0.349), 0 0 1px 1px greenyellow;
+
+  background-image: linear-gradient(#000000, #131312, rgb(22, 25, 19));
+}
+
+.card:hover img {
+  filter: none;
+}
+.card img {
+  filter: grayscale(40%);
 }
 
 .name {
   font-family: "VT323", monospace;
-  font-size: 30px;
+  /* font-family: "Barlow Condensed", sans-serif; */
+
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   margin: 0;
-  height: 40px;
+  padding-inline: 5px;
+  height: 70px;
   background-color: greenyellow;
   color: #222;
   border-radius: 8px 8px 0 0;
@@ -56,7 +71,8 @@
 }
 
 .card img {
-  width: 240px;
+  width: 260px;
+  height: 250px;
 }
 
 .data {
