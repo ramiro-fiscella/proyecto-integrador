@@ -1,8 +1,21 @@
 .mainContainer {
   max-width: 1270px;
-  margin: 6rem auto;
+  margin: 8rem auto;
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+::-webkit-scrollbar-track {
+  background-color: #252b1f;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  display: block;
+  position: absolute;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0b0c0a;
 }

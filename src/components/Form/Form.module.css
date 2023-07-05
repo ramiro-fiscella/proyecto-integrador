@@ -1,0 +1,80 @@
+form {
+  background-image: linear-gradient(
+    #0000006b,
+    #2f3f1648,
+    #0f0f0e00,
+    #080807d8,
+    #000000e3
+  );
+  height: 90vh;
+  max-height: 660px;
+  max-width: 400px;
+
+  position: absolute;
+  top: 180px;
+  left: 6rem;
+  right: 6rem;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid greenyellow;
+  border-radius: 15px;
+}
+form h2 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+form img {
+  width: 220px;
+  margin-bottom: 25px;
+  animation: rotation 40s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+form input {
+  text-align: center;
+  color: gray;
+  height: 30px;
+  width: 250px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0 30px 0;
+}
+form input:focus,
+textarea:focus {
+  outline: solid 1px greenyellow;
+  border: solid 1px rgb(210, 255, 10);
+}
+
+form button {
+  outline: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  background-color: #1f2219;
+}
+form button:hover {
+  transition: 500ms;
+  background-color: greenyellow;
+  box-shadow: 0 0 1px 1px greenyellow;
+  color: #222;
+}
+form p {
+  font-size: 14px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}

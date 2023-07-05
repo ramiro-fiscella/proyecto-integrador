@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600&display=swap");
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto Mono", monospace;
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,20 +13,28 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: greenyellow;
+  color: black;
+  text-decoration: none;
 }
 
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
 
   min-width: 320px;
   min-height: 100vh;
+
+  background-image: linear-gradient(
+      rgb(31, 13, 27),
+      rgba(15, 19, 17, 0.884),
+      rgba(15, 17, 14, 0.774),
+      rgba(130, 255, 14, 0.26)
+    ),
+    url(./assets/imgs/bg-img-1.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 h1 {
@@ -44,16 +53,6 @@ button {
   transition: border-color 0.25s;
 }
 
-*:hover {
-  border-style: none;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-*/ #root {
-  margin: 0 auto;
-}
 p::selection {
   background-color: greenyellow;
   color: black;

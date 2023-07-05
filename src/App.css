@@ -1,4 +1,4 @@
-*:hover {
+/* *:hover {
   border-style: none;
 }
 body {
@@ -34,4 +34,4 @@ img::selection {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
-}
+} */

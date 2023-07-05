@@ -6,6 +6,7 @@
 }
 .buscador input {
   height: 30px;
+  width: 115px;
   padding: 0 10px;
   border-radius: 5px;
   border: none;
@@ -26,7 +27,7 @@ textarea:focus {
   background-color: #1f2219;
 }
 .buscador button:hover {
-  transition: 1s;
+  transition: 500ms;
   background-color: greenyellow;
   box-shadow: 0 0 1px 1px greenyellow;
   color: #222;

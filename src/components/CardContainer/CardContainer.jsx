@@ -11,6 +11,7 @@ const CardContainer = ({ characters, onClose }) => {
           return (
             <Card
               key={id}
+              id={id}
               name={name}
               species={species}
               gender={gender}

@@ -68,6 +68,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .card img {
@@ -76,6 +77,7 @@
 }
 
 .data {
+  color: white;
   height: 120px;
 }
 .data p {

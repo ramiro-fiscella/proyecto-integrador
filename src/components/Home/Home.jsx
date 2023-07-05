@@ -4,7 +4,7 @@ import CardContainer from "../CardContainer/CardContainer";
 const Home = () => {
   return (
     <div>
-      <span>Home</span>
+      <h1>ESTO ES EL HOME</h1>
       <CardContainer character onClose />
     </div>
   );
