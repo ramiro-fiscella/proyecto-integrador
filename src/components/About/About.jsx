@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className={styles.about}>
-      <Link to="/">
-        <img src="src\assets\imgs\favicon.png" alt="" />
-      </Link>
+      <img src="src\assets\imgs\big-img.png" alt="" />
       <h1>I'm working on it!</h1>
     </div>
   );
