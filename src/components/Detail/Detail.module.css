@@ -1,0 +1,61 @@
+.detailContainer {
+  margin-top: 150px;
+  max-width: 800px;
+  line-height: 0;
+}
+
+.detailCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 100px;
+  line-height: normal;
+
+  padding: 10px 50px 50px 50px;
+  max-width: 400px;
+
+  background: #466368;
+  background: linear-gradient(#435c56e5, #314b46e7, #182327de);
+
+  border: 1px solid greenyellow;
+  border-radius: 15px;
+}
+
+.charInfo h3 {
+  font-size: 30px;
+}
+
+.charInfo p {
+  margin-bottom: -30px;
+  font-size: 20px;
+  color: #9ba5a5;
+}
+.img {
+  border-radius: 10px;
+  margin: auto;
+}
+
+.charInfo {
+  text-align: center;
+  margin: auto;
+}
+.name {
+  color: greenyellow;
+  text-transform: uppercase;
+}
+.data {
+  margin-top: 40px;
+  border: 1px solid #646b6b;
+  border-radius: 5px;
+  padding: 10px 40px;
+
+  text-align: left;
+}
+.data h3 {
+  font-size: 25px;
+}
+.data span {
+  font-size: large;
+  color: #9ba5a5;
+}

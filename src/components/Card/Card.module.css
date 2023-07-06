@@ -9,13 +9,7 @@
   height: initial;
   width: 260px;
   margin: 25px 15px;
-  background-image: linear-gradient(
-    #000000,
-    #23310a,
-    #0f0f0e,
-    #131312,
-    #21271c
-  );
+  background-image: linear-gradient(#000000, #21611a, #000000);
   transition-duration: 300ms;
 
   border-radius: 8px;
@@ -30,7 +24,7 @@
   border-radius: 8px;
   box-shadow: 0 0 40px 5px rgba(152, 255, 8, 0.349), 0 0 1px 1px greenyellow;
 
-  background-image: linear-gradient(#000000, #131312, rgb(22, 25, 19));
+  background-image: linear-gradient(#000000, #1a3020, #3e704b, #000000);
 }
 
 .card:hover img {
@@ -69,33 +63,55 @@
   justify-content: center;
   align-items: center;
   color: white;
+  background-color: #1a3020;
+  text-transform: uppercase;
+}
+.id {
+  position: relative;
+  display: block;
+  height: 24px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #1a3020;
+  text-transform: uppercase;
 }
 
 .card img {
   width: 260px;
-  height: 250px;
+  height: 265px;
+  margin-bottom: -8px;
 }
 
-.data {
-  color: white;
-  height: 120px;
-}
-.data p {
-  margin: 10px 14px;
-}
-
-.closeButton {
-  border-radius: 0 0 8px 8px;
-  width: 100%;
+.buttons button {
   text-transform: uppercase;
-  background-color: #1f2219;
+  background-color: #16161500;
+  width: 100%;
+  padding: 0;
+
+  font-size: 25px;
+}
+.favButton {
+  border-radius: 8px 0 8px 0;
+}
+.closeButton {
+  border-radius: 0 8px 0 8px;
 }
 
-.closeButton:hover {
+.buttons button:hover {
   transition: 1s;
   background-color: greenyellow;
   outline: solid 1px greenyellow;
   border: solid 1px greenyellow;
   color: #222;
   z-index: 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  color: #222;
 }

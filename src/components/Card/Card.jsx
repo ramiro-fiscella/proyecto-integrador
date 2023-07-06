@@ -58,23 +58,23 @@ const Card = ({
         <h2 className={styles.name}>{name}</h2>
         <p className={styles.status}>{status}</p>
         <img src={image} alt={name} />
-
-        <div className={styles.data}>
-          <p>Id: {id}</p>
-          <p>Species: {species}</p>
-          <p>Gender: {gender}</p>
-          <p>Origin: {origin}</p>
-        </div>
+        <p className={styles.id}>ID: {id}</p>
       </Link>
 
-      <button className={styles.closeButton} onClick={() => onClose(id)}>
-        remove card
-      </button>
-      {isFav ? (
-        <button onClick={handleFavorite}>💚</button>
-      ) : (
-        <button onClick={handleFavorite}>🤍</button>
-      )}
+      <div className={styles.buttons}>
+        <button className={styles.closeButton} onClick={() => onClose(id)}>
+          ✖️
+        </button>
+        {isFav ? (
+          <button className={styles.favButton} onClick={handleFavorite}>
+            💚
+          </button>
+        ) : (
+          <button className={styles.favButton} onClick={handleFavorite}>
+            🤍
+          </button>
+        )}
+      </div>
     </div>
   );
 };
