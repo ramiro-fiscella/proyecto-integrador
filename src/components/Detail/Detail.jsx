@@ -49,6 +49,7 @@ const Detail = () => {
           </div>
         </div>
       </div>
+      <button>BACK</button>
     </div>
   );
 };

@@ -19,3 +19,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: #0b0c0a;
 }
+
+.buttonBar {
+  margin: 120px 0;
+}
