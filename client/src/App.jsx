@@ -10,9 +10,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
-let EMAIL = "ramirofiscella@gmail.com";
-let PASSWORD = "mipassword2";
-
 function App() {
   const location = useLocation();
   const navigate = useNavigate();

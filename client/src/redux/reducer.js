@@ -16,10 +16,10 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_FAV:
-      return { ...state, myFavorites: payload, allCharacters: payload };
+      return { ...state, myFavorites: payload, allFavs: payload };
 
     case REMOVE_FAV:
-      return { ...state, myFavorites: payload, allCharacters: payload };
+      return { ...state, myFavorites: payload };
 
     case GENDER_FILTER:
       return {

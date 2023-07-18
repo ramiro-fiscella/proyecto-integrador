@@ -1,39 +1,44 @@
-let myFavorites = [];
+let favs = require("../utils/favs");
 
 const postFav = (req, res) => {
   const character = req.body;
-
-  myFavorites.push(character);
-
-  return res.status(200).json(myFavorites);
+  const characterExists = favs.some((fav) => fav.id === character.id);
+  if (characterExists) {
+    return res
+      .status(403)
+      .json({ error: "El personaje ya está en la lista de favoritos." });
+  }
+  favs.push(character);
+  return res.status(201).json(favs);
+};
+const getFavs = (req, res) => {
+  return res.status(200).json(favs);
 };
 
 const deleteFav = (req, res) => {
   const { id } = req.params;
-
-  myFavorites = myFavorites.filter((fav) => fav.id != id);
-
-  return res.status(200).json(myFavorites);
+  favs = favs.filter((char) => char.id != id);
+  return res.status(200).json(favs);
 };
 
 // Función para filtrar personajes favoritos por género
 const filterByGender = (req, res) => {
   const { gender } = req.query; // Cambiar a req.query
-  const filteredFavorites = myFavorites.filter((fav) => fav.gender == gender); // Filtrar por género
+  const filteredFavorites = favs.filter((fav) => fav.gender == gender); // Filtrar por género
   res.json(filteredFavorites); // Devolver los personajes filtrados en formato JSON
 };
 
 // Función para filtrar los personajes favoritos por estado
 const filterByStatus = (req, res) => {
   const { status } = req.query;
-  const filteredFavorites = myFavorites.filter((fav) => fav.status === status); // Filtrar por estado
+  const filteredFavorites = favs.filter((fav) => fav.status === status); // Filtrar por estado
   res.json(filteredFavorites); // Devolver los personajes filtrados en formato JSON
 };
 
 // Función para ordenar la lista de personajes favoritos
 const orderFavorites = (req, res) => {
   const { order } = req.query;
-  const sortedFavorites = myFavorites.sort((a, b) => {
+  const sortedFavorites = favs.sort((a, b) => {
     // Ordenar según el valor del campo 'name' en orden ascendente o descendente
     if (order === "A") {
       return a.name.localeCompare(b.name);
@@ -50,6 +55,7 @@ const orderFavorites = (req, res) => {
 
 module.exports = {
   postFav,
+  getFavs,
   deleteFav,
   filterByGender,
   filterByStatus,
