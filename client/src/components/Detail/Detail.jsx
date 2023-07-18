@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import styles from "./Detail.module.css";
@@ -48,8 +48,10 @@ const Detail = () => {
             </h3>
           </div>
         </div>
+        <Link to="/home">
+          <button className="styles.backButton">BACK</button>
+        </Link>
       </div>
-      <button>BACK</button>
     </div>
   );
 };

@@ -30,7 +30,7 @@ const Form = ({ login }) => {
   };
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <form onSubmit={handleSubmit}>
         <h2>Log in</h2>
         <div>
@@ -45,7 +45,7 @@ const Form = ({ login }) => {
           value={userData.email}
           onChange={handleChange}
         />
-        {errors.email ? <p>{errors.email}</p> : null}
+        {errors.email ? <p className={styles.errors}>{errors.email}</p> : null}
         <label>Password:</label>
         <input
           placeholder="y0uR_pA5Sw0rd"
@@ -54,7 +54,7 @@ const Form = ({ login }) => {
           value={userData.password}
           onChange={handleChange}
         />
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p className={styles.errors}>{errors.password}</p>}
 
         <button>Submit</button>
       </form>

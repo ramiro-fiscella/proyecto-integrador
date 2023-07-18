@@ -1,6 +1,27 @@
+.myFavs {
+  margin-top: 130px;
+  text-align: center;
+}
+h2 {
+  margin: 0;
+  font-size: 30px;
+  color: greenyellow;
+  text-transform: uppercase;
+}
+.sorter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #252b1f;
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 3px 15px;
+}
+
 .mainContainer {
   max-width: 1270px;
-  margin: 8rem auto;
+  margin: auto;
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
@@ -21,5 +42,32 @@
 }
 
 .buttonBar {
-  margin: 120px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+  width: 60rem;
+}
+.buttonBar div {
+  margin: 0 20px;
+}
+.buttonBar button {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background-color: #161615;
+}
+.buttonBar button:hover {
+  transition: 1s;
+  background-color: greenyellow;
+  outline: solid 1px greenyellow;
+  border: solid 1px greenyellow;
+  color: #222;
+}
+.buttonBar select {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  padding-inline: 5px;
+  background-color: #161615;
 }

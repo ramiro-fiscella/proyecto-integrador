@@ -1,10 +1,9 @@
+import { useState, useEffect } from "react";
 import { addFav, removeFav } from "../../redux/action/actions";
 import { connect } from "react-redux";
 
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
-
-import { useState, useEffect } from "react";
 
 const Card = ({
   id,
@@ -18,6 +17,7 @@ const Card = ({
   addFav,
   removeFav,
   myFavorites,
+  genderFilter,
 }) => {
   const [character, setCharacters] = useState({});
   const [isFav, setIsFav] = useState(false);
@@ -33,13 +33,6 @@ const Card = ({
         name,
         status,
         image,
-        species,
-        gender,
-        origin,
-        onClose,
-        addFav,
-        removeFav,
-        myFavorites,
       });
     }
   };
@@ -51,6 +44,20 @@ const Card = ({
       }
     });
   }, [myFavorites]);
+
+  const shouldShowCharacter = () => {
+    if (!genderFilter) {
+      // Si no hay filtro, mostrar todos los personajes
+      return true;
+    } else {
+      // Si hay filtro, verificar si el personaje coincide con el género filtrado
+      return genderFilter === "allCharacters" || genderFilter === status;
+    }
+  };
+
+  if (!shouldShowCharacter()) {
+    return null; // No mostrar el componente si el personaje no coincide con el género filtrado
+  }
 
   return (
     <div className={styles.card}>
@@ -91,7 +98,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  return { myFavorites: state.myFavorites };
+  return {
+    myFavorites: state.myFavorites,
+    genderFilter: state.genderFilter, // Agregamos el filtro de género desde el estado del store
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

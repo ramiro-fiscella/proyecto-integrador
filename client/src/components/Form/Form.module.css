@@ -1,3 +1,20 @@
+.mainContainer {
+  max-width: 1270px;
+}
+::-webkit-scrollbar-track {
+  background-color: #252b1f;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  display: block;
+  position: absolute;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0b0c0a;
+}
+
 form {
   background-image: linear-gradient(
     #0000006b,
@@ -10,16 +27,13 @@ form {
   max-height: 660px;
   max-width: 400px;
 
-  position: absolute;
-  top: 180px;
-  left: 6rem;
-  right: 6rem;
-  margin: auto;
+  margin: 50px 0;
+  padding: 10px 20px 20px 20px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   border: 1px solid greenyellow;
   border-radius: 15px;
@@ -30,8 +44,7 @@ form h2 {
 }
 
 form img {
-  width: 220px;
-  margin-bottom: 25px;
+  width: 160px;
   animation: rotation 40s infinite linear;
 }
 @keyframes rotation {
@@ -62,7 +75,6 @@ form button {
   outline: none;
   padding: 5px 20px;
   border-radius: 5px;
-  border: none;
   text-transform: uppercase;
   background-color: #1f2219;
 }
@@ -76,4 +88,8 @@ form p {
   font-size: 14px;
   text-align: center;
   color: rgb(255, 255, 255);
+}
+.errors {
+  margin-top: -10px;
+  color: violet;
 }

@@ -1,4 +1,10 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./action-types";
+import {
+  ADD_FAV,
+  REMOVE_FAV,
+  GENDER_FILTER,
+  STATUS_FILTER,
+  ORDER_FAVORITES,
+} from "./action-types";
 
 import axios from "axios";
 
@@ -26,10 +32,23 @@ export const removeFav = (id) => {
   };
 };
 
-export const filterCards = (gender) => {
-  return { type: "FILTER", payload: gender };
+export const genderFilter = (gender) => {
+  return {
+    type: GENDER_FILTER,
+    payload: gender,
+  };
 };
 
-export const orderCards = (order) => {
-  return { type: "ORDER", payload: order };
+export const statusFilter = (status) => {
+  return {
+    type: STATUS_FILTER,
+    payload: status,
+  };
+};
+
+export const orderFavorites = (order) => {
+  return {
+    type: ORDER_FAVORITES,
+    payload: order,
+  };
 };

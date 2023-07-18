@@ -1,6 +1,10 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
-import { filterCards, orderCards } from "../../redux/action/actions";
+import {
+  genderFilter,
+  statusFilter,
+  orderFavorites,
+} from "../../redux/action/actions";
 
 import Card from "../Card/Card";
 import styles from "./Favorites.module.css";
@@ -9,47 +13,77 @@ const Favorites = () => {
   const favorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
+  const [genderFilter, setGenderFilter] = useState("allCharacters");
+  const [statusFilter, setStatusFilter] = useState("allCharacters");
+  const [order, setOrder] = useState("A");
 
   const handleOrder = (event) => {
-    dispatch(orderCards(event.target.value));
+    const { value } = event.target;
+    setOrder(value);
+    dispatch(orderFavorites(value)); // Dispatch del ordenamiento
     setAux(true);
   };
+
   const handleFilter = (event) => {
-    dispatch(filterCards(event.target.value));
+    const { name, value } = event.target;
+    if (name === "genderFilter") {
+      setGenderFilter(value);
+      dispatch(genderFilter(value)); // Dispatch del filtro de género
+    } else if (name === "statusFilter") {
+      setStatusFilter(value);
+      dispatch(statusFilter(value)); // Dispatch del filtro de estado
+    }
   };
 
   return (
-    <div>
+    <div className={styles.myFavs}>
+      <h2>My Favorites</h2>
+      <h3>Sort:</h3>
       <div className={styles.buttonBar}>
-        <button value="A" onClick={handleOrder}>
-          ▲
-        </button>
-        <button value="D" onClick={handleOrder}>
-          ▼
-        </button>
-
-        <select onChange={handleFilter}>
-          <option value="allCharacters">All</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
-        </select>
-
-        <div className={styles.mainContainer}>
-          {favorites.map(({ id, name, status, image, onClose }) => {
-            return (
-              <Card
-                key={id}
-                id={id}
-                name={name}
-                status={status}
-                image={image}
-                onClose={onClose}
-              />
-            );
-          })}
+        <div className={styles.sorter}>
+          <label>By Name</label>
+          <button value="A" onClick={handleOrder}>
+            ▲
+          </button>
+          <button value="D" onClick={handleOrder}>
+            ▼
+          </button>
         </div>
+
+        <div className={styles.sorter}>
+          <label>By Gender</label>
+          <select onChange={handleFilter}>
+            <option value="allCharacters">All</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Genderless">Genderless</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div className={styles.sorter}>
+          <label>By Status</label>
+          <select onChange={handleFilter}>
+            <option value="allCharacters">All</option>
+            <option value="Alive">Alive</option>
+            <option value="Dead">Dead</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+        </div>
+      </div>
+      <div className={styles.mainContainer}>
+        {favorites.map(({ id, name, status, image, onClose }) => {
+          return (
+            <Card
+              key={id}
+              id={id}
+              name={name}
+              status={status}
+              image={image}
+              onClose={onClose}
+            />
+          );
+        })}
       </div>
     </div>
   );

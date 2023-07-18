@@ -1,7 +1,9 @@
 .detailContainer {
-  margin-top: 150px;
+  margin: 150px 0;
   max-width: 800px;
   line-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .detailCard {
@@ -9,11 +11,11 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   line-height: normal;
 
   padding: 10px 50px 50px 50px;
-  max-width: 400px;
+  max-width: 70vw;
 
   background: #466368;
   background: linear-gradient(#435c56e5, #314b46e7, #182327de);
@@ -28,7 +30,6 @@
 
 .charInfo p {
   margin-bottom: -30px;
-  font-size: 20px;
   color: #9ba5a5;
 }
 .img {
@@ -53,9 +54,22 @@
   text-align: left;
 }
 .data h3 {
-  font-size: 25px;
+  font-size: 20px;
 }
 .data span {
-  font-size: large;
+  font-size: 16px;
   color: #9ba5a5;
+}
+.detailCard button {
+  text-transform: uppercase;
+  background-color: #161615;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.detailCard button:hover {
+  transition: 1s;
+  background-color: greenyellow;
+  outline: solid 1px greenyellow;
+  border: solid 1px greenyellow;
+  color: #222;
 }
