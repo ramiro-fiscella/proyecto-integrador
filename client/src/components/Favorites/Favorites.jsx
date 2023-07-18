@@ -37,17 +37,17 @@ const Favorites = () => {
 
   return (
     <div className={styles.myFavs}>
-      <h2>My Favorites</h2>
-      <h3>Sort:</h3>
       <div className={styles.buttonBar}>
         <div className={styles.sorter}>
           <label>By Name</label>
-          <button value="A" onClick={handleOrder}>
-            ▲
-          </button>
-          <button value="D" onClick={handleOrder}>
-            ▼
-          </button>
+          <div>
+            <button value="A" onClick={handleOrder}>
+              ▲
+            </button>
+            <button value="D" onClick={handleOrder}>
+              ▼
+            </button>
+          </div>
         </div>
 
         <div className={styles.sorter}>
@@ -71,7 +71,9 @@ const Favorites = () => {
           </select>
         </div>
       </div>
+
       <div className={styles.mainContainer}>
+        <h2 className={styles.title}>My Favorites</h2>
         {favorites.map(({ id, name, status, image, onClose }) => {
           return (
             <Card
