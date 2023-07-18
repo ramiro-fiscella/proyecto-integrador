@@ -39,7 +39,7 @@ const Favorites = () => {
     <div className={styles.myFavs}>
       <div className={styles.buttonBar}>
         <div className={styles.sorter}>
-          <label>By Name</label>
+          {/* <label>By Name</label> */}
           <div>
             <button value="A" onClick={handleOrder}>
               ▲
@@ -51,7 +51,7 @@ const Favorites = () => {
         </div>
 
         <div className={styles.sorter}>
-          <label>By Gender</label>
+          {/* <label>By Gender</label> */}
           <select onChange={handleFilter}>
             <option value="allCharacters">All</option>
             <option value="Male">Male</option>
@@ -62,7 +62,7 @@ const Favorites = () => {
         </div>
 
         <div className={styles.sorter}>
-          <label>By Status</label>
+          {/* <label>By Status</label> */}
           <select onChange={handleFilter}>
             <option value="allCharacters">All</option>
             <option value="Alive">Alive</option>
