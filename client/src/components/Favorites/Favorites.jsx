@@ -6,7 +6,7 @@ import {
   orderFavorites,
 } from "../../redux/action/actions";
 
-import Card from "../Card/Card";
+import FavCard from "../FavCard/FavCard";
 import styles from "./Favorites.module.css";
 
 const Favorites = () => {
@@ -76,7 +76,7 @@ const Favorites = () => {
         <h2 className={styles.title}>My Favorites</h2>
         {favorites.map(({ id, name, status, image, onClose }) => {
           return (
-            <Card
+            <FavCard
               key={id}
               id={id}
               name={name}
