@@ -13,7 +13,7 @@ const initialState = {
   status: null,
 };
 
-const reducer = (state = initialState, { type, payload }) => {
+const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_FAV:
       return { ...state, myFavorites: payload, allFavs: payload };
@@ -42,4 +42,4 @@ const reducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default reducer;
+export default rootReducer;

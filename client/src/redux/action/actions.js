@@ -8,18 +8,33 @@ import {
 
 import axios from "axios";
 
-export const addFav = (character) => {
-  return function (dispatch) {
-    axios
-      .post("http://localhost:3001/rickandmorty/fav", character)
-      .then((response) => {
-        return dispatch({
-          type: ADD_FAV,
-          payload: response.data,
-        });
-      });
-  };
+export const addFav = async (character) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/rickandmorty/fav",
+      character
+    );
+    return {
+      type: ADD_FAV,
+      payload: character,
+    };
+  } catch (error) {
+    console.log("Error: ", error.message);
+  }
 };
+
+// export const addFav = (character) => {
+//   return function (dispatch) {
+//     axios
+//       .post("http://localhost:3001/rickandmorty/fav", character)
+//       .then((response) => {
+//         return dispatch({
+//           type: ADD_FAV,
+//           payload: response.data,
+//         });
+//       });
+//   };
+// };
 
 export const removeFav = (id) => {
   return function (dispatch) {
@@ -33,6 +48,8 @@ export const removeFav = (id) => {
       });
   };
 };
+
+/////////////////////////// F I L T R O S ///////////////////////////
 
 export const genderFilter = (gender) => {
   return {

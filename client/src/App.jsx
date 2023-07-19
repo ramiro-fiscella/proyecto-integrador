@@ -16,52 +16,66 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
-  const login = (userData) => {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const response = await axios.get(URL, { params: { email, password } });
+
+      const { access } = response.data;
       setAccess(access);
       access && navigate("/home");
-    });
+    } catch (error) {
+      console.error("Error :", error.message);
+    }
   };
 
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
 
-  const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((response) => response.data)
-      .then((data) => {
-        if (characters.find((char) => char.id === data.id)) {
-          return alert("Este personaje ya ha sido agregado!");
+  const onSearch = async (id) => {
+    try {
+      const response = await axios(
+        `https://rickandmortyapi.com/api/character/${id}`
+      );
+      const data = response.data;
+
+      if (characters.find((char) => char.id === data.id)) {
+        return alert("Este personaje ya ha sido agregado!");
+      } else {
+        if (data.id) {
+          setCharacters((characters) => [...characters, data]);
+          setId("");
         } else {
-          if (data.id) {
-            setCharacters((characters) => [...characters, data]);
-            setId("");
-          } else {
-            window.alert("¡No hay personajes con este ID!");
-          }
+          window.alert("¡No hay personajes con este ID!");
         }
-      });
+      }
+    } catch (error) {
+      console.error("Error: ", error.message);
+    }
   };
 
-  const addRandomCharacter = () => {
-    const randomId = Math.floor(Math.random() * 826) + 1;
-    axios(`https://rickandmortyapi.com/api/character/${randomId}`)
-      .then((response) => response.data)
-      .then((data) => {
-        if (characters.find((char) => char.id === data.id)) {
-          addRandomCharacter();
+  const addRandomCharacter = async () => {
+    try {
+      const randomId = Math.floor(Math.random() * 826) + 1;
+      const response = await axios(
+        `https://rickandmortyapi.com/api/character/${randomId}`
+      );
+      const data = response.data;
+
+      if (characters.find((char) => char.id === data.id)) {
+        addRandomCharacter();
+      } else {
+        if (data.id) {
+          setCharacters((characters) => [...characters, data]);
         } else {
-          if (data.id) {
-            setCharacters((characters) => [...characters, data]);
-          } else {
-            window.alert("¡No hay personajes con este ID!");
-          }
+          window.alert("¡No hay personajes con este ID!");
         }
-      });
+      }
+    } catch (error) {
+      console.error("Error: ", error.message);
+    }
   };
 
   const onClose = (id) => {
@@ -85,7 +99,7 @@ function App() {
           element={<CardContainer characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/fav" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </>

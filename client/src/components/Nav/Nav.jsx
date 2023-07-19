@@ -16,7 +16,7 @@ const Nav = ({ onSearch, onRandomAdd }) => {
         </div>
         <SearchBar onSearch={onSearch} onRandomAdd={onRandomAdd} />
         <div className={styles.navigation}>
-          <Link to="/favorites">
+          <Link to="/fav">
             <button>Favorites</button>
           </Link>
           <Link to="/about">
