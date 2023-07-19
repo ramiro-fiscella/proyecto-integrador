@@ -42,20 +42,6 @@ const FavCard = ({
     });
   }, [myFavorites]);
 
-  const shouldShowCharacter = () => {
-    if (!genderFilter) {
-      // Si no hay filtro, mostrar todos los personajes
-      return true;
-    } else {
-      // Si hay filtro, verificar si el personaje coincide con el género filtrado
-      return genderFilter === "allCharacters" || genderFilter === status;
-    }
-  };
-
-  if (!shouldShowCharacter()) {
-    return null; // No mostrar el componente si el personaje no coincide con el género filtrado
-  }
-
   return (
     <div className={styles.card}>
       <Link to={`/detail/${id}`}>
