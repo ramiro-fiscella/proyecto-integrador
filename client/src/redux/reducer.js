@@ -1,42 +1,70 @@
 import {
   ADD_FAV,
   REMOVE_FAV,
-  GENDER_FILTER,
-  STATUS_FILTER,
+  FILTER_GENDER,
+  FILTER_STATUS,
   ORDER_FAVORITES,
 } from "./action/action-types";
 
 const initialState = {
   myFavorites: [],
-  allFavs: [],
-  genderFilter: null,
-  status: null,
+  allCharacters: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_FAV:
-      return { ...state, myFavorites: payload, allFavs: payload };
+      const isCharacterInFavorites = state.myFavorites.some(
+        (character) => character.id === payload.id
+      );
+      if (isCharacterInFavorites) {
+        // If the character is already a favorite, return the current state without making any changes
+        return state;
+      } else {
+        // If the character is not already a favorite, add it to the favorites array
+        return {
+          ...state,
+          myFavorites: [...state.myFavorites, payload],
+        };
+      }
 
     case REMOVE_FAV:
       return { ...state, myFavorites: payload };
 
-    case GENDER_FILTER:
+    case FILTER_GENDER:
       return {
         ...state,
-        genderFilter: payload,
+        myFavorites: state.allCharacters.filter(
+          (character) => character.gender === payload
+        ),
       };
-    case STATUS_FILTER:
+
+    case FILTER_STATUS:
       return {
         ...state,
-        status: payload,
+        myFavorites: state.allCharacters.filter(
+          (character) => character.status === payload
+        ),
       };
 
     case ORDER_FAVORITES:
+      const sortedCharacters = [...state.allCharacters];
+      sortedCharacters.sort((a, b) => {
+        if (payload === "A") {
+          if (a > b) return 1;
+          if (a < b) return -1;
+          return 0;
+        } else {
+          if (a > b) return -1;
+          if (a < b) return 1;
+          return 0;
+        }
+      });
       return {
         ...state,
-        order: payload,
+        myFavorites: sortedCharacters,
       };
+
     default:
       return state;
   }

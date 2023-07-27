@@ -1,38 +1,28 @@
 import React, { useState } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import {
-  genderFilter,
-  statusFilter,
-  orderFavorites,
+  orderCards,
+  filterStatus,
+  filterGender,
 } from "../../redux/action/actions";
 
 import FavCard from "../FavCard/FavCard";
 import styles from "./Favorites.module.css";
 
 const Favorites = () => {
+  const [aux, setAux] = useState(0);
   const favorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
-  const [aux, setAux] = useState(false);
-  const [genderFilter, setGenderFilter] = useState("allCharacters");
-  const [statusFilter, setStatusFilter] = useState("allCharacters");
-  const [order, setOrder] = useState("A");
 
   const handleOrder = (event) => {
-    const { value } = event.target;
-    setOrder(value);
-    dispatch(orderFavorites(value)); // Dispatch del ordenamiento
-    setAux(true);
+    dispatch(orderCards(event.target.value));
   };
 
-  const handleFilter = (event) => {
-    const { name, value } = event.target;
-    if (name === "genderFilter") {
-      setGenderFilter(value);
-      dispatch(genderFilter(value)); // Dispatch del filtro de género
-    } else if (name === "statusFilter") {
-      setStatusFilter(value);
-      dispatch(statusFilter(value)); // Dispatch del filtro de estado
-    }
+  const handleFilterStatus = (event) => {
+    dispatch(filterStatus(event.target.value));
+  };
+  const handleFilterGender = (event) => {
+    dispatch(filterGender(event.target.value));
   };
 
   return (
@@ -52,8 +42,7 @@ const Favorites = () => {
 
         <div className={styles.sorter}>
           {/* <label>By Gender</label> */}
-          <select onChange={handleFilter}>
-            <option value="allCharacters">All</option>
+          <select onChange={handleFilterGender}>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Genderless">Genderless</option>
@@ -63,8 +52,7 @@ const Favorites = () => {
 
         <div className={styles.sorter}>
           {/* <label>By Status</label> */}
-          <select onChange={handleFilter}>
-            <option value="allCharacters">All</option>
+          <select onChange={handleFilterStatus}>
             <option value="Alive">Alive</option>
             <option value="Dead">Dead</option>
             <option value="Unknown">Unknown</option>

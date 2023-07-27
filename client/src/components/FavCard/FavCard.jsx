@@ -10,11 +10,9 @@ const FavCard = ({
   name,
   status,
   image,
-  onClose,
   addFav,
   removeFav,
   myFavorites,
-  genderFilter,
 }) => {
   const [character, setCharacters] = useState({});
   const [isFav, setIsFav] = useState(false);

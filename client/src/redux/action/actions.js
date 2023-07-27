@@ -1,40 +1,29 @@
 import {
   ADD_FAV,
   REMOVE_FAV,
-  GENDER_FILTER,
-  STATUS_FILTER,
+  FILTER_GENDER,
+  FILTER_STATUS,
   ORDER_FAVORITES,
 } from "./action-types";
 
 import axios from "axios";
 
-export const addFav = async (character) => {
-  try {
-    const response = await axios.post(
-      "http://localhost:3001/rickandmorty/fav",
-      character
-    );
-    return {
-      type: ADD_FAV,
-      payload: character,
-    };
-  } catch (error) {
-    console.log("Error: ", error.message);
-  }
+export const addFav = (character) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/rickandmorty/fav",
+        character
+      );
+      dispatch({
+        type: ADD_FAV,
+        payload: character,
+      });
+    } catch (error) {
+      console.log("Error: ", error.message);
+    }
+  };
 };
-
-// export const addFav = (character) => {
-//   return function (dispatch) {
-//     axios
-//       .post("http://localhost:3001/rickandmorty/fav", character)
-//       .then((response) => {
-//         return dispatch({
-//           type: ADD_FAV,
-//           payload: response.data,
-//         });
-//       });
-//   };
-// };
 
 export const removeFav = (id) => {
   return function (dispatch) {
@@ -51,21 +40,21 @@ export const removeFav = (id) => {
 
 /////////////////////////// F I L T R O S ///////////////////////////
 
-export const genderFilter = (gender) => {
+export const filterGender = (gender) => {
   return {
-    type: GENDER_FILTER,
+    type: FILTER_GENDER,
     payload: gender,
   };
 };
 
-export const statusFilter = (status) => {
+export const filterStatus = (status) => {
   return {
-    type: STATUS_FILTER,
+    type: FILTER_STATUS,
     payload: status,
   };
 };
 
-export const orderFavorites = (order) => {
+export const orderCards = (order) => {
   return {
     type: ORDER_FAVORITES,
     payload: order,
