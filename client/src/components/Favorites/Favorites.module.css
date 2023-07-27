@@ -7,7 +7,7 @@
 .title {
   text-align: center;
 
-  margin-top: 120px;
+  margin-top: 180px;
   font-size: 30px;
   color: greenyellow;
   text-transform: uppercase;
@@ -30,6 +30,7 @@
 
 .mainContainer {
   max-width: 1270px;
+  margin: auto;
   padding: 0 3rem;
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +42,7 @@
   align-items: center;
   position: fixed;
   left: 0;
+  top: 55px;
   width: 100%;
   z-index: 5;
   justify-content: center;

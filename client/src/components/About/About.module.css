@@ -10,6 +10,7 @@
 .about img {
   margin-top: 150px;
   width: 80vw;
+  max-width: 500px;
   animation: rotation 40s infinite linear;
 }
 @keyframes rotation {

@@ -60,20 +60,22 @@ const Favorites = () => {
         </div>
       </div>
 
-      <div className={styles.mainContainer}>
+      <div>
         <h2 className={styles.title}>My Favorites</h2>
-        {favorites.map(({ id, name, status, image, onClose }) => {
-          return (
-            <FavCard
-              key={id}
-              id={id}
-              name={name}
-              status={status}
-              image={image}
-              onClose={onClose}
-            />
-          );
-        })}
+        <div className={styles.mainContainer}>
+          {favorites.map(({ id, name, status, image, onClose }) => {
+            return (
+              <FavCard
+                key={id}
+                id={id}
+                name={name}
+                status={status}
+                image={image}
+                onClose={onClose}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
