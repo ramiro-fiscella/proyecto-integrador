@@ -16,19 +16,38 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
-  const login = async (userData) => {
+  const login = async function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    // axios(URL + ?email=${email}&password=${password}).then(({ data }) => {
+    //    const { access } = data;
+    //    setAccess(data);
+    //    access && navigate('/home');
+    // });
     try {
-      const { email, password } = userData;
-      const URL = "http://localhost:3001/rickandmorty/login/";
-      const response = await axios.get(URL, { params: { email, password } });
-
-      const { access } = response.data;
-      setAccess(access);
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(data);
       access && navigate("/home");
     } catch (error) {
-      console.error("Error :", error.message);
+      alert("Usuario invalido");
     }
   };
+  // const login = async (userData) => {
+  //   try {
+  //     const { email, password } = userData;
+  //     const URL = "http://localhost:3001/rickandmorty/login/";
+  //     const response = await axios.get(URL, { params: { email, password } });
+
+  //     const { access } = response.data;
+  //     setAccess(access);
+  //     access && navigate("/home");
+  //   } catch (error) {
+  //     console.error("Error :", error.message);
+  //   }
+  // };
 
   useEffect(() => {
     !access && navigate("/");

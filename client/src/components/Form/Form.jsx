@@ -3,7 +3,7 @@ import validation from "../Validation/Validation";
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 
-const Form = ({ login }) => {
+const Form = (props) => {
   const [errors, setErrors] = useState({});
   const [userData, setUserData] = useState({
     email: "",
@@ -26,7 +26,7 @@ const Form = ({ login }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(userData);
+    props.login(userData);
   };
 
   return (
@@ -54,7 +54,11 @@ const Form = ({ login }) => {
           value={userData.password}
           onChange={handleChange}
         />
-        {errors.password && <p className={styles.errors}>{errors.password}</p>}
+        {errors.password && (
+          <p className={styles.errors}>
+            {errors.password ? errors.password : null}
+          </p>
+        )}
 
         <button>Submit</button>
       </form>

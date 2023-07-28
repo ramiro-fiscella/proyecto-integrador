@@ -10,7 +10,7 @@ const validation = (userData) => {
   if (!userData.email) {
     errors.email = "Este campo es obligatorio";
   }
-  if (!userData.email.length < 35) {
+  if (!userData.email.length > 35) {
     errors.email = "El email no puede tener mas de 35 caracteres";
   }
   if (!regexNumber.test(userData.password)) {
